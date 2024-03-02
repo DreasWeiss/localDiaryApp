@@ -1,5 +1,8 @@
+import './Button.css';
+
 export default function Button() {
 	return (
-		<button>Save</button>
+		<button className="button accent">Save</button>
 	);
 }
+ 

@@ -1,0 +1,35 @@
+.diary-item{
+    border-radius: 3px;
+    background: rgba(255,255,255,.03);
+    color: #FFF;
+    padding: 20px;
+}
+
+.diary-item__header{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+.diary-item__body{
+    display: flex;
+    gap: 10px;
+ }
+
+.diary-item__date{
+    color: rgba(255,255,255,.4);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.diary-item__text{
+    color: rgba(255,255,255,.6);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    overflow: hidden; 
+}
