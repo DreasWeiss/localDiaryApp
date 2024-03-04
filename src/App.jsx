@@ -1,9 +1,13 @@
 import './App.css';
-import Button from './components/Button/Button';
+import LeftPanel from './layouts/LeftPanel/LeftPanel';
+import Body from './layouts/Boby/Body';
+
 import CardButton from './components/CardButton/CardButton';
 import DiaryItem from './components/DiaryItem/DiaryItem';
+import Header from './components/Header/Header';
+import DiaryList from './components/DiaryList/DiaryList';
 
-function App() {
+function App() { 
 
 	const data = [
 		{
@@ -23,26 +27,26 @@ function App() {
 		}
 	];
 
-	return <>
-		<h1>Hello World</h1>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste accusantium, corporis repellendus quasi sint beatae nesciunt earum cumque alias tenetur debitis nostrum blanditiis fuga dolorum excepturi nisi voluptate, praesentium mollitia!</p>
-		<Button />
-		<br />
-		<br />
-		<CardButton>
-			New memory
-		</CardButton>
-		<CardButton>
-			<DiaryItem 
-				title={data[0].title}  
-				text={data[0].text} 
-				date={data[0].date} 
-			/>  
-		</CardButton>
-		<CardButton>
-			<DiaryItem title={data[1].title} text={data[1].text} date={data[1].date}/>  
-		</CardButton>
-	</>;
+	return <div className='app'>
+		<LeftPanel>
+			<Header/>
+			<DiaryList>
+				<CardButton>
+					<DiaryItem 
+						title={data[0].title}  
+						text={data[0].text} 
+						date={data[0].date} 
+					/>  
+				</CardButton>
+				<CardButton>
+					<DiaryItem title={data[1].title} text={data[1].text} date={data[1].date}/>  
+				</CardButton>
+			</DiaryList>
+		</LeftPanel>
+		<Body>
+ Body
+		</Body>
+	</div>;
 }
 
 export default App;
