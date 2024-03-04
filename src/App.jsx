@@ -6,6 +6,7 @@ import CardButton from './components/CardButton/CardButton';
 import DiaryItem from './components/DiaryItem/DiaryItem';
 import Header from './components/Header/Header';
 import DiaryList from './components/DiaryList/DiaryList';
+import DiaryAddButton from './components/DiaryAddButton/DiaryAddButton';
 
 function App() { 
 
@@ -30,6 +31,7 @@ function App() {
 	return <div className='app'>
 		<LeftPanel>
 			<Header/>
+			<DiaryAddButton />
 			<DiaryList>
 				<CardButton>
 					<DiaryItem 

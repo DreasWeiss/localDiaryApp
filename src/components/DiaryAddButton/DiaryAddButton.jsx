@@ -3,9 +3,9 @@ import './DiaryAddButton.css';
 
 export default function DiaryAdd() {
 	return (
-		<CardButton>
+		<CardButton className='diary-add'>
 			New Memory
 		</CardButton>
 	);
 }
- 
+  
