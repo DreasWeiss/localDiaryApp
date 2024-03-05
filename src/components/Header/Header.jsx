@@ -2,8 +2,6 @@ import './Header.css';
 
 export default function Header() {
 	return (
-		<>
-      Logo
-		</>
+		<img src="/logo.svg" alt="logo" className='logo'/>
 	);
 }
