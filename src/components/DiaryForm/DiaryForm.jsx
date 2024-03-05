@@ -6,6 +6,9 @@ import Button from '../Button/Button';
 export default function DiaryForm() {
 
 	const [inputData, setInputData] = useState('');
+	// const [state, setState] = useState({
+	// 	age: 31
+	// });
 
 	const inputChange = (e) => { 
 		console.log(e);
@@ -14,7 +17,10 @@ export default function DiaryForm() {
 	};
 
 	const addDiaryItem = (e) => {
-		e.preventDefault(); 
+		e.preventDefault();
+		// state.age = 40; 
+		// setState(state);
+		// setState({...state});
 		const formData = new FormData(e.target);
 		const formProps = Object.fromEntries(formData);
 		console.log(formProps);
@@ -22,11 +28,12 @@ export default function DiaryForm() {
 
 	return (
 		<form className='diary-form' onSubmit={addDiaryItem }>
+			{state.age}
 			<input type="text" name='title'/>
 			<input type="date" name='date'/>
 			<input type="text" name='tag' value={inputData}  onChange={inputChange}/> 
 			<textarea name="post" id="" cols="30" rows="10"></textarea>
-			<Button text={'Save'}/>
+			<Button text={'Save'} onClick={()=>console.log('Clicked')}/>
 		</form>
 	);
 }
