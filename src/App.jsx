@@ -6,7 +6,7 @@ import CardButton from './components/CardButton/CardButton';
 import DiaryItem from './components/DiaryItem/DiaryItem';
 import Header from './components/Header/Header';
 import DiaryList from './components/DiaryList/DiaryList';
-import DiaryAddButton from './components/DiaryAddButton/DiaryAddButton';
+import DiaryAddButton from './components/DiaryAddButton/DiaryAddButton'; 
 
 function App() { 
 
