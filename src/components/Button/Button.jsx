@@ -1,22 +1,22 @@
 import './Button.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 
-export default function Button() {
+export default function Button({text}) {
 
-	const [text, setText] = useState('Save');
-	console.log('rerender');
+	// const [text, setText] = useState('Save');
+	// console.log('rerender');
 
-	const clicked = () => {
-		setText('Close');
-		return console.log('Clicked');
-	};
+	// const clicked = () => {
+	// 	setText('Close');
+	// 	return console.log('Clicked');
+	// };
 
 	return (
 		<button 
 			className="button accent"
 			// onClick={()=>console.log('Hello World')}
 			// onClick={clicked()} - !!! при первичной отрисовке будет исполнена !!!
-			onClick={clicked}
+			// onClick={clicked}
 		>{text}</button>
 	);
 }

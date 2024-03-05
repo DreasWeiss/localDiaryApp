@@ -7,6 +7,7 @@ import DiaryItem from './components/DiaryItem/DiaryItem';
 import Header from './components/Header/Header';
 import DiaryList from './components/DiaryList/DiaryList';
 import DiaryAddButton from './components/DiaryAddButton/DiaryAddButton'; 
+import DiaryForm from './components/DiaryForm/DiaryForm';
 
 function App() { 
 
@@ -46,7 +47,7 @@ function App() {
 			</DiaryList>
 		</LeftPanel>
 		<Body>
- Body
+			<DiaryForm />
 		</Body>
 	</div>;
 }
