@@ -28,7 +28,7 @@ export default function DiaryForm() {
 
 	return (
 		<form className='diary-form' onSubmit={addDiaryItem }>
-			{state.age}
+			{/* {state.age} */}
 			<input type="text" name='title'/>
 			<input type="date" name='date'/>
 			<input type="text" name='tag' value={inputData}  onChange={inputChange}/> 
