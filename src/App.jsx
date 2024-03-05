@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import DiaryList from './components/DiaryList/DiaryList';
 import DiaryAddButton from './components/DiaryAddButton/DiaryAddButton'; 
 import DiaryForm from './components/DiaryForm/DiaryForm';
+import Button from './components/Button/Button';
 
 function App() { 
 
@@ -34,7 +35,17 @@ function App() {
 			<Header/>
 			<DiaryAddButton />
 			<DiaryList>
-				<CardButton>
+				{/* {[<Button text={'1'}/>,<Button text={'2'}/>]} */}
+				{data.map((d, idx)=>(
+					<CardButton key={idx}>
+						<DiaryItem 
+							title={d.title}  
+							text={d.text} 
+							date={d.date} 
+						/>  
+					</CardButton>
+				))}
+				{/* <CardButton>
 					<DiaryItem 
 						title={data[0].title}  
 						text={data[0].text} 
@@ -43,7 +54,7 @@ function App() {
 				</CardButton>
 				<CardButton>
 					<DiaryItem title={data[1].title} text={data[1].text} date={data[1].date}/>  
-				</CardButton>
+				</CardButton> */}
 			</DiaryList>
 		</LeftPanel>
 		<Body>
