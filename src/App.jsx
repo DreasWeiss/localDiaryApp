@@ -8,57 +8,59 @@ import Header from './components/Header/Header';
 import DiaryList from './components/DiaryList/DiaryList';
 import DiaryAddButton from './components/DiaryAddButton/DiaryAddButton'; 
 import DiaryForm from './components/DiaryForm/DiaryForm';
-import Button from './components/Button/Button';
+// import Button from './components/Button/Button';
+
+import { useState } from 'react';
+
+const INITIAL_DATA = [
+	{
+		title: 'Prepairing for course update',
+		date: new Date(),
+		text: 'Горные походы открывают удивительные природные ландшафт' 
+	},
+	{
+		title: 'Hiking to the mountains',
+		date: new Date(),
+		text: 'Различают альпинизм и горный туризм. Если в альпинизме главная цель' 
+	},
+	{
+		title: 'First note',
+		date: new Date(),
+		text: 'Горные походы открывают удивительные природные ландшафт' 
+	}
+];
 
 function App() { 
 
-	const data = [
-		{
-			title: 'Prepairing for course update',
-			date: new Date(),
-			text: 'Горные походы открывают удивительные природные ландшафт' 
-		},
-		{
-			title: 'Hiking to the mountains',
-			date: new Date(),
-			text: 'Различают альпинизм и горный туризм. Если в альпинизме главная цель' 
-		},
-		{
-			title: 'First note',
-			date: new Date(),
-			text: 'Горные походы открывают удивительные природные ландшафт' 
-		}
-	];
+	const [items, setItems] = useState(INITIAL_DATA);
+
+	const addItem = (item) => {
+		setItems(olditems=>[...olditems, {
+			text: item.text,
+			date: new Date(item.date),
+			title: item.title,
+			tag: item.tag
+		}]);
+	};
 
 	return <div className='app'>
 		<LeftPanel>
 			<Header/>
 			<DiaryAddButton />
 			<DiaryList>
-				{/* {[<Button text={'1'}/>,<Button text={'2'}/>]} */}
-				{data.map((d, idx)=>(
+				{items.map((i, idx)=>(
 					<CardButton key={idx}>
 						<DiaryItem 
-							title={d.title}  
-							text={d.text} 
-							date={d.date} 
+							title={i.title}  
+							text={i.text} 
+							date={i.date} 
 						/>  
 					</CardButton>
 				))}
-				{/* <CardButton>
-					<DiaryItem 
-						title={data[0].title}  
-						text={data[0].text} 
-						date={data[0].date} 
-					/>  
-				</CardButton>
-				<CardButton>
-					<DiaryItem title={data[1].title} text={data[1].text} date={data[1].date}/>  
-				</CardButton> */}
 			</DiaryList>
 		</LeftPanel>
 		<Body>
-			<DiaryForm />
+			<DiaryForm onSubmit={addItem}/>
 		</Body>
 	</div>;
 }

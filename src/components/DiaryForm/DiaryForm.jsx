@@ -3,18 +3,18 @@ import './DiaryForm.css';
 
 import Button from '../Button/Button';
 
-export default function DiaryForm() {
+export default function DiaryForm({onSubmit}) {
 
-	const [inputData, setInputData] = useState('');
+	// const [inputData, setInputData] = useState('');
 	// const [state, setState] = useState({
 	// 	age: 31
 	// });
 
-	const inputChange = (e) => { 
-		console.log(e);
-		console.log(e.target.value);
-		setInputData(e.target.value);
-	};
+	// const inputChange = (e) => { 
+	// 	console.log(e);
+	// 	console.log(e.target.value);
+	// 	setInputData(e.target.value);
+	// };
 
 	const addDiaryItem = (e) => {
 		e.preventDefault();
@@ -23,7 +23,7 @@ export default function DiaryForm() {
 		// setState({...state});
 		const formData = new FormData(e.target);
 		const formProps = Object.fromEntries(formData);
-		console.log(formProps);
+		onSubmit(formProps); 
 	};
 
 	return (
@@ -31,8 +31,8 @@ export default function DiaryForm() {
 			{/* {state.age} */}
 			<input type="text" name='title'/>
 			<input type="date" name='date'/>
-			<input type="text" name='tag' value={inputData}  onChange={inputChange}/> 
-			<textarea name="post" id="" cols="30" rows="10"></textarea>
+			<input type="text" name='tag'/> 
+			<textarea name="text" id="" cols="30" rows="10"></textarea>
 			<Button text={'Save'} onClick={()=>console.log('Clicked')}/>
 		</form>
 	);
