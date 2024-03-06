@@ -10,24 +10,24 @@ import DiaryForm from './components/DiaryForm/DiaryForm';
 import { useState } from 'react';
 
 const INITIAL_DATA = [
-	// {
-	// 	id: 1,
-	// 	title: 'Prepairing for course update',
-	// 	date: new Date(),
-	// 	text: 'Горные походы открывают удивительные природные ландшафт' 
-	// },
-	// {
-	// 	id: 2,
-	// 	title: 'Hiking to the mountains',
-	// 	date: new Date(),
-	// 	text: 'Различают альпинизм и горный туризм. Если в альпинизме главная цель' 
-	// },
-	// {
-	// 	id: 3,
-	// 	title: 'First note',
-	// 	date: new Date(),
-	// 	text: 'Горные походы открывают удивительные природные ландшафт' 
-	// }
+	{
+		id: 1,
+		title: 'Prepairing for course update',
+		date: new Date(),
+		text: 'Горные походы открывают удивительные природные ландшафт' 
+	},
+	{
+		id: 2,
+		title: 'Hiking to the mountains',
+		date: new Date(),
+		text: 'Различают альпинизм и горный туризм. Если в альпинизме главная цель' 
+	},
+	{
+		id: 3,
+		title: 'First note',
+		date: new Date(),
+		text: 'Горные походы открывают удивительные природные ландшафт' 
+	}
 ];
 
 function App() { 
