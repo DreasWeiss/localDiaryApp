@@ -13,24 +13,24 @@ import DiaryForm from './components/DiaryForm/DiaryForm';
 import { useState } from 'react';
 
 const INITIAL_DATA = [
-	{
-		id: 1,
-		title: 'Prepairing for course update',
-		date: new Date(),
-		text: 'Горные походы открывают удивительные природные ландшафт' 
-	},
-	{
-		id: 2,
-		title: 'Hiking to the mountains',
-		date: new Date(),
-		text: 'Различают альпинизм и горный туризм. Если в альпинизме главная цель' 
-	},
-	{
-		id: 3,
-		title: 'First note',
-		date: new Date(),
-		text: 'Горные походы открывают удивительные природные ландшафт' 
-	}
+	// {
+	// 	id: 1,
+	// 	title: 'Prepairing for course update',
+	// 	date: new Date(),
+	// 	text: 'Горные походы открывают удивительные природные ландшафт' 
+	// },
+	// {
+	// 	id: 2,
+	// 	title: 'Hiking to the mountains',
+	// 	date: new Date(),
+	// 	text: 'Различают альпинизм и горный туризм. Если в альпинизме главная цель' 
+	// },
+	// {
+	// 	id: 3,
+	// 	title: 'First note',
+	// 	date: new Date(),
+	// 	text: 'Горные походы открывают удивительные природные ландшафт' 
+	// }
 ];
 
 function App() { 
@@ -51,12 +51,25 @@ function App() {
 		return a.date < b.date ? 1 : -1;
 	};
 
+	let list = <p>No memories yet, please add first one...</p>;
+	if (items.length > 0) {
+		list = items.sort(sortItems).map((i)=>(
+			<CardButton key={i.id}>
+				<DiaryItem 
+					title={i.title}  
+					text={i.text} 
+					date={i.date} 
+				/>  
+			</CardButton>
+		));
+	}
+
 	return <div className='app'>
 		<LeftPanel>
 			<Header/>
 			<DiaryAddButton />
-			<DiaryList>
-				{items.sort(sortItems).map((i)=>(
+			{/* <DiaryList>
+				{items.length === 0 ? <p>No memories yet, please add first one...</p> : items.sort(sortItems).map((i)=>(
 					<CardButton key={i.id}>
 						<DiaryItem 
 							title={i.title}  
@@ -65,7 +78,23 @@ function App() {
 						/>  
 					</CardButton>
 				))}
-			</DiaryList>
+			</DiaryList> */}
+			{/* <DiaryList>
+				{items.length === 0 && <p>No memories yet, please add first one...</p> }
+				{items.length > 0 && items.sort(sortItems).map((i)=>(
+					<CardButton key={i.id}>
+						<DiaryItem 
+							title={i.title}  
+							text={i.text} 
+							date={i.date} 
+						/>  
+					</CardButton>
+				))}
+			</DiaryList> */}
+			{/* <DiaryList>
+				{list}
+			</DiaryList> */}
+			<DiaryList items={items}/>
 		</LeftPanel>
 		<Body>
 			<DiaryForm onSubmit={addItem}/>

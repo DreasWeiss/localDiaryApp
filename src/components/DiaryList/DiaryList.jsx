@@ -1,9 +1,9 @@
 import './DiaryList.css';
 
-export default function DiaryList({children}) {
+export default function DiaryList({items}) {
 	return (
 		<div className='diary-list'>
-			{children}
+			{items}
 		</div>
 	);
 }
