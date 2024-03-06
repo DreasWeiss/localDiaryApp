@@ -2,13 +2,10 @@ import './App.css';
 import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import Body from './layouts/Boby/Body';
 
-import CardButton from './components/CardButton/CardButton';
-import DiaryItem from './components/DiaryItem/DiaryItem';
 import Header from './components/Header/Header';
 import DiaryList from './components/DiaryList/DiaryList';
 import DiaryAddButton from './components/DiaryAddButton/DiaryAddButton'; 
 import DiaryForm from './components/DiaryForm/DiaryForm';
-// import Button from './components/Button/Button';
 
 import { useState } from 'react';
 
@@ -47,53 +44,10 @@ function App() {
 		}]);
 	};
 
-	const sortItems = (a,b) => {
-		return a.date < b.date ? 1 : -1;
-	};
-
-	let list = <p>No memories yet, please add first one...</p>;
-	if (items.length > 0) {
-		list = items.sort(sortItems).map((i)=>(
-			<CardButton key={i.id}>
-				<DiaryItem 
-					title={i.title}  
-					text={i.text} 
-					date={i.date} 
-				/>  
-			</CardButton>
-		));
-	}
-
 	return <div className='app'>
 		<LeftPanel>
 			<Header/>
 			<DiaryAddButton />
-			{/* <DiaryList>
-				{items.length === 0 ? <p>No memories yet, please add first one...</p> : items.sort(sortItems).map((i)=>(
-					<CardButton key={i.id}>
-						<DiaryItem 
-							title={i.title}  
-							text={i.text} 
-							date={i.date} 
-						/>  
-					</CardButton>
-				))}
-			</DiaryList> */}
-			{/* <DiaryList>
-				{items.length === 0 && <p>No memories yet, please add first one...</p> }
-				{items.length > 0 && items.sort(sortItems).map((i)=>(
-					<CardButton key={i.id}>
-						<DiaryItem 
-							title={i.title}  
-							text={i.text} 
-							date={i.date} 
-						/>  
-					</CardButton>
-				))}
-			</DiaryList> */}
-			{/* <DiaryList>
-				{list}
-			</DiaryList> */}
 			<DiaryList items={items}/>
 		</LeftPanel>
 		<Body>
