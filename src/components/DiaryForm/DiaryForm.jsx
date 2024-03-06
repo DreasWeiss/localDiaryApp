@@ -5,22 +5,8 @@ import Button from '../Button/Button';
 
 export default function DiaryForm({onSubmit}) {
 
-	// const [inputData, setInputData] = useState('');
-	// const [state, setState] = useState({
-	// 	age: 31
-	// });
-
-	// const inputChange = (e) => { 
-	// 	console.log(e);
-	// 	console.log(e.target.value);
-	// 	setInputData(e.target.value);
-	// };
-
 	const addDiaryItem = (e) => {
 		e.preventDefault();
-		// state.age = 40; 
-		// setState(state);
-		// setState({...state});
 		const formData = new FormData(e.target);
 		const formProps = Object.fromEntries(formData);
 		onSubmit(formProps); 
@@ -28,7 +14,6 @@ export default function DiaryForm({onSubmit}) {
 
 	return (
 		<form className='diary-form' onSubmit={addDiaryItem }>
-			{/* {state.age} */}
 			<input type="text" name='title'/>
 			<input type="date" name='date'/>
 			<input type="text" name='tag'/> 
