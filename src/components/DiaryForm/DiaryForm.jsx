@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './DiaryForm.css';
+import styles from './DiaryForm.module.css';
 
 import Button from '../Button/Button';
 
@@ -41,11 +41,27 @@ export default function DiaryForm({onSubmit}) {
 	};
 
 	return (
-		<form className='diary-form' onSubmit={addDiaryItem }>
-			<input type="text" name='title' style={{border: formValidState.title ? undefined : '1px solid red'}}/>
-			<input type="date" name='date' style={{border: formValidState.date ? undefined : '1px solid red'}}/>
-			<input type="text" name='tag'/> 
-			<textarea name="post" id="" cols="30" rows="10" style={{border: formValidState.post ? undefined : '1px solid red'}}></textarea>
+		<form className={styles['diary-form']} onSubmit={addDiaryItem }>
+			<input 
+				type="text" 
+				name='title' 
+				className={`${styles['input']} ${formValidState.title ? '' : styles['invalid']}`}/>
+			{/* style={{border: formValidState.title ? undefined : '1px solid red'}} */}
+			{/* className={`input ${formValidState.title ? '' : 'invalid'}`}/>  */}
+			<input 
+				type="date" 
+				name='date' 
+				className={`${styles.input} ${formValidState.date ? '' : styles['invalid']}`}/>
+			<input 
+				type="text" 
+				name='tag'/>  
+			<textarea 
+				name="post" 
+				id="" 
+				cols="30" 
+				rows="10" 
+				className={`${styles.input} ${formValidState.post ? '' : styles['invalid']}`}>
+			</textarea>
 			<Button text={'Save'}/>
 		</form>
 	);
