@@ -1,10 +1,47 @@
 .diary-form {
-    display: flex;
-    flex-direction: column; 
-    gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.input-title {
+  border: none;
+  background: none;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-bottom: 1px solid #323232;
+  width: 100%;
+}
+
+.input {
+  border: none;
+  background: none;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-bottom: 1px solid #323232;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 150px;
 }
 
 .invalid {
-    border: 1px solid red;
-    background: rgb(231, 120, 120);
+  border: 1px solid red;
+  background: rgb(231, 120, 120);
 }

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import styles from './DiaryForm.module.css';
+import cn from 'classnames';
+// import classNames from 'classnames';
 
 import Button from '../Button/Button';
 
 export default function DiaryForm({onSubmit}) {
 
-	const [formValidState, setFormValidState] = useState({
+	const [formValidState, setFormValidState] = useState({ 
 		title: true,
 		post: true,
 		date: true
@@ -42,25 +44,69 @@ export default function DiaryForm({onSubmit}) {
 
 	return (
 		<form className={styles['diary-form']} onSubmit={addDiaryItem }>
-			<input 
+			<div>
+				<input 
+					type="text" 
+					name='title' 
+					className={cn(styles['input-title'], {
+						[styles.invalid] : !formValidState.title
+					})}/>
+				{/* className={cn(styles.input, styles.invalid )}/> */}
+				{/* className={`${styles['input']} ${formValidState.title ? '' : styles['invalid']}`}/> */}
+				{/* style={{border: formValidState.title ? undefined : '1px solid red'}} */}
+				{/* className={`input ${formValidState.title ? '' : 'invalid'}`}/>  */}
+			</div>
+			{/* <input 
 				type="text" 
 				name='title' 
-				className={`${styles['input']} ${formValidState.title ? '' : styles['invalid']}`}/>
+				className={cn(styles.input, {
+					[styles.invalid] : !formValidState.title
+				}, styles.title )}/> */}
+			{/* className={cn(styles.input, styles.invalid )}/> */}
+			{/* className={`${styles['input']} ${formValidState.title ? '' : styles['invalid']}`}/> */}
 			{/* style={{border: formValidState.title ? undefined : '1px solid red'}} */}
 			{/* className={`input ${formValidState.title ? '' : 'invalid'}`}/>  */}
-			<input 
-				type="date" 
-				name='date' 
-				className={`${styles.input} ${formValidState.date ? '' : styles['invalid']}`}/>
-			<input 
-				type="text" 
-				name='tag'/>  
+			<div className={styles['form-row']}>
+				<label 
+					htmlFor="date" 
+					className={styles['form-label']}>
+					<img 
+						src="/calendar.svg" 
+						alt="calendar image" />
+					<span>Date</span>
+				</label>
+				<input 
+					type="date" 
+					name='date' 
+					id='date'
+					className={cn(styles.input, {
+						[styles.invalid] : !formValidState.date
+					})}/>
+			</div>
+			<div className={styles['form-row']}>
+				<label 
+					htmlFor="tag" 
+					className={styles['form-label']}>
+					<img 
+						src="/dir.svg" 
+						alt="directory/folder image" />
+					<span>Tags</span>
+				</label>
+				<input 
+					type="text" 
+					name='tag'
+					id='tag'
+					className={styles.input}
+				/>  
+			</div>
 			<textarea 
 				name="post" 
 				id="" 
 				cols="30" 
 				rows="10" 
-				className={`${styles.input} ${formValidState.post ? '' : styles['invalid']}`}>
+				className={cn(styles.input, {
+					[styles.invalid]: !formValidState.post
+				})}>
 			</textarea>
 			<Button text={'Save'}/>
 		</form>
