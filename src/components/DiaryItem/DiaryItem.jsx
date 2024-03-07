@@ -1,6 +1,6 @@
 import './DiaryItem.css';
 
-export default function DiaryItem({title, text, date}) {
+export default function DiaryItem({title, post, date}) {
 	
 	// const preatyDate = (date) => {
 	// 	let day = date.getDate();
@@ -19,7 +19,7 @@ export default function DiaryItem({title, text, date}) {
 			<h2 className="diary-item__body">
 				{/* <div className="diary-item__date">{preatyDate(date)}</div> */}
 				<div className="diary-item__date">{formatedDate }</div>
-				<div className="diary-item__text">{text}</div>
+				<div className="diary-item__text">{post}</div>
 			</h2>
 		</>
 	); 

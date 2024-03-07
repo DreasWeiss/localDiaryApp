@@ -15,7 +15,7 @@ export default function DiaryList({items}) {
 		<CardButton key={i.id}>
 			<DiaryItem 
 				title={i.title}  
-				text={i.text} 
+				post={i.post} 
 				date={i.date} 
 			/>  
 		</CardButton>
