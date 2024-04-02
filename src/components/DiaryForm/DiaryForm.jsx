@@ -1,17 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './DiaryForm.module.css';
 import cn from 'classnames';
 // import classNames from 'classnames';
 
 import Button from '../Button/Button';
 
+const INITIAL_STATE = {
+	title: true,
+	post: true,
+	date: true
+};
+
 export default function DiaryForm({onSubmit}) {
 
-	const [formValidState, setFormValidState] = useState({ 
-		title: true,
-		post: true,
-		date: true
-	});
+	// const [formValidState, setFormValidState] = useState({ 
+	// 	title: true,
+	// 	post: true,
+	// 	date: true
+	// });
+	const [formValidState, setFormValidState] = useState(INITIAL_STATE);
+
+	useEffect(()=> {
+		let timerID;
+		if (!formValidState.title || !formValidState.post || !formValidState.date) {
+			timerID = setTimeout(()=>{
+				setFormValidState(INITIAL_STATE);
+			}, 2000);
+		}
+		return () => {
+			clearTimeout(timerID);
+		};
+	},[formValidState]);
 
 	const addDiaryItem = (e) => {
 		e.preventDefault();
